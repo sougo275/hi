@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>إلى فاطمة</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fecfef);
+    font-family: Tahoma, sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    direction: rtl;
+}
+
+/* القلوب المتحركة */
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 20px;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+/* البطاقة */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 40px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 2s ease;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: #ff4b6e;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: #ffe4ec;
+}
+
+#rose {
+    font-size: 80px;
+    margin-top: 20px;
+    display: none;
+    animation: fadeIn 1.5s ease;
+}
+
+#giftBtn {
+    display: none;
+    margin-top: 20px;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>فاطمة ❤️</h1>
+    <button onclick="showGift()">يا ترى ايه الموجود هنا 🤔</button>
+
+    <div id="rose">🌹</div>
+
+    <button id="giftBtn" onclick="alert('❤️👷‍♀️احلي وردة لاحلي بشمهندسة')">
+        click her 👀
+    </button>
+</div>
+
+<script>
+function showGift() {
+    document.getElementById("rose").style.display = "block";
+    document.getElementById("giftBtn").style.display = "inline-block";
+}
+
+/* القلوب المتحركة */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
